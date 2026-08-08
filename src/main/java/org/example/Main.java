@@ -2,45 +2,16 @@ package org.example;
 
 public class Main {
     public static void main(String[] args) {
-        int idade = 30;
-        double altura = 1.75;
+        OrdemBase ordem1 = new OrdemProducao("042", 2026, 8);
+        OrdemBase ordem2 = new OrdemVeiculacao("015", 2026, 8);
 
-        // Operadores aritmeticos e comparação
-        int anoNascimento = 2026 - idade;
-        boolean maiorDeIdade = idade >= 18;
+        System.out.println(ordem1.getSequenciaCompleta());
+        System.out.println(ordem2.getSequenciaCompleta());
 
-        System.out.println("Ano de nascimento aproximado: " + anoNascimento);
-        System.out.println("É maior de idade: " + maiorDeIdade);
+        OrdemBase[] ordens = { ordem1, ordem2 };
 
-        // if / else
-        if (idade >= 18) {
-            System.out.println("Pode assinar contratos.");
-        } else {
-            System.out.println("Não pode assinar contratos.");
+        for (OrdemBase ordem : ordens) {
+            System.out.println("Tipo: " + ordem.getTipo() + " -> " + ordem.getSequenciaCompleta());
         }
-
-        // Arrays - tamanho fixo
-        String[] tecnologias = {"Java", "Python", "Odoo", "PostgreSQL"};
-        System.out.println("Número de tecnologias: " + tecnologias.length);
-
-        for (int i = 0; i < tecnologias.length; i++) {
-            System.out.println((i + 1) + ". " + tecnologias[i]);
-        }
-
-        // Tratamento de exceções
-        try {
-            int resultado = 10 / 0;
-            System.out.println(resultado);
-        } catch (ArithmeticException e) {
-            System.out.println("Erro capturado: " + e.getMessage());
-        }
-
-        // StringBuilder - eficiente para concatenar em loop
-        StringBuilder relatorio = new StringBuilder();
-        relatorio.append("Relatório de Ordens:\n");
-        for (int i = 1; i <= 3; i++) {
-            relatorio.append("- Ordem PROD/2026/08/00").append(i).append("\n");
-        }
-        System.out.println(relatorio.toString());
     }
 }
