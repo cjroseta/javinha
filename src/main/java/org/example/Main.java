@@ -11,7 +11,7 @@ public class Main {
         OrdemBase[] ordens = { ordem1, ordem2 };
 
         for (OrdemBase ordem : ordens) {
-            System.out.println("Tipo: " + ordem.getTipo() + " -> " + ordem.getSequenciaCompleta());
+            System.out.println("Tipo: " + ordem.getTipo() + " --> " + ordem.getSequenciaCompleta());
         }
     }
 }
