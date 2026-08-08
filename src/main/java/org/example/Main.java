@@ -13,5 +13,7 @@ public class Main {
         for (OrdemBase ordem : ordens) {
             System.out.println("Tipo: " + ordem.getTipo() + " --> " + ordem.getSequenciaCompleta());
         }
+
+        ((OrdemProducao) ordem1).enviarNotificacao("Ordem pronta para produção.");
     }
 }

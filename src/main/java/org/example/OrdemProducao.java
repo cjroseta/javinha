@@ -1,6 +1,6 @@
 package org.example;
 
-public class OrdemProducao extends OrdemBase {
+public class OrdemProducao extends OrdemBase implements Notificavel {
 
     public OrdemProducao(String sequencia, int ano, int mes) {
         super(sequencia, ano, mes);
@@ -9,5 +9,10 @@ public class OrdemProducao extends OrdemBase {
     @Override
     public String getTipo() {
         return "PROD";
+    }
+
+    @Override
+    public void enviarNotificacao(String mensagem) {
+        System.out.println("[Notificação PROD " + sequencia + "] " + mensagem);
     }
 }
