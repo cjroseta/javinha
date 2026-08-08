@@ -2,14 +2,29 @@ package org.example;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world and welcome! Marratonando Java com o JAVINHA.");
-
         int idade = 30;
-        System.out.println("A minha idade é " + idade);
-
         double altura = 1.75;
-        boolean temExperienciaOdoo = true;
-        char nomeInicial = 'C';
-        System.out.println("Altura: " + altura + " | Tem experiência Odoo: " + temExperienciaOdoo + " | Inicial: " + nomeInicial);
+
+        // Operadores aritmeticos e comparação
+        int anoNascimento = 2026 - idade;
+        boolean maiorDeIdade = idade >= 18;
+
+        System.out.println("Ano de nascimento aproximado: " + anoNascimento);
+        System.out.println("É maior de idade: " + maiorDeIdade);
+
+        // if / else
+        if (idade >= 18) {
+            System.out.println("Pode assinar contratos.");
+        } else {
+            System.out.println("Não pode assinar contratos.");
+        }
+
+        // Arrays - tamanho fixo
+        String[] tecnologias = {"Java", "Python", "Odoo", "PostgreSQL"};
+        System.out.println("Número de tecnologias: " + tecnologias.length);
+
+        for (int i = 0; i < tecnologias.length; i++) {
+            System.out.println((i + 1) + ". " + tecnologias[i]);
+        }
     }
 }
