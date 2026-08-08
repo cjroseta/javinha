@@ -15,5 +15,8 @@ public class Main {
         }
 
         ((OrdemProducao) ordem1).enviarNotificacao("Ordem pronta para produção.");
+
+        EstadoOrdem estado = EstadoOrdem.CONFIRMADA;
+        System.out.println("Estado: " + estado + " -> " + estado.getDescricao());
     }
 }
