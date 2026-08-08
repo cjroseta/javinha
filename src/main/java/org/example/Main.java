@@ -26,5 +26,21 @@ public class Main {
         for (int i = 0; i < tecnologias.length; i++) {
             System.out.println((i + 1) + ". " + tecnologias[i]);
         }
+
+        // Tratamento de exceções
+        try {
+            int resultado = 10 / 0;
+            System.out.println(resultado);
+        } catch (ArithmeticException e) {
+            System.out.println("Erro capturado: " + e.getMessage());
+        }
+
+        // StringBuilder - eficiente para concatenar em loop
+        StringBuilder relatorio = new StringBuilder();
+        relatorio.append("Relatório de Ordens:\n");
+        for (int i = 1; i <= 3; i++) {
+            relatorio.append("- Ordem PROD/2026/08/00").append(i).append("\n");
+        }
+        System.out.println(relatorio.toString());
     }
 }
