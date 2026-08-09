@@ -64,7 +64,7 @@ public class Main {
 
         // Fórmula de ocupação já usada em scala_panel_occupancy.py:
         // soma das durações (ms) ÷ 3600 × 100, onde 1 hora = 100% de ocupação
-        double ocupacaoPercentual = (duracaoTotalMs / 3600.0) * 100;
+        double ocupacaoPercentual = (duracaoTotalMs / 3600000.0) * 100;
         System.out.println("Ocupação calculada: " + ocupacaoPercentual + "%");
     }
 }
