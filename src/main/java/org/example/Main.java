@@ -66,5 +66,27 @@ public class Main {
         // soma das durações (ms) ÷ 3600 × 100, onde 1 hora = 100% de ocupação
         double ocupacaoPercentual = (duracaoTotalMs / 3600000.0) * 100;
         System.out.println("Ocupação calculada: " + ocupacaoPercentual + "%");
+
+        // ---- Optional: forma idiomática de lidar com "pode não existir" ----
+// Em vez de devolver null (e arriscar NullPointerException mais tarde),
+// Optional obriga quem recebe o valor a tratar explicitamente o caso de estar vazio
+        Optional<Playlist> playlistMaisLonga = todasAsPlaylists.stream()
+                .max(Comparator.comparingLong(Playlist::getDuracaoMs));
+
+// isPresent() verifica se existe valor antes de o usar
+        if (playlistMaisLonga.isPresent()) {
+            System.out.println("Playlist mais longa: " + playlistMaisLonga.get());
+        } else {
+            System.out.println("Nenhuma playlist encontrada.");
+        }
+
+// Forma mais idiomática (equivalente, mas sem se preocupar com isPresent/get manualmente):
+// ifPresentOrElse recebe duas lambdas: o que fazer se existir, o que fazer se não existir
+        todasAsPlaylists.stream()
+                .min(Comparator.comparingLong(Playlist::getDuracaoMs))
+                .ifPresentOrElse(
+                        playlist -> System.out.println("Playlist mais curta: " + playlist),
+                        () -> System.out.println("Nenhuma playlist encontrada.")
+                );
     }
 }
